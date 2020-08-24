@@ -1,0 +1,37 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+
+df=pd.read_csv('homeprices3.csv')
+import math
+median_bedroom=math.floor(df.bedrooms.median())
+df.bedrooms=df.bedrooms.fillna(median_bedroom)
+reg=linear_model.LinearRegression()
+reg.fit(df[['area','bedrooms','age']],df.price)
+print(reg.coef_)
+print(reg.intercept_)
+ax=reg.predict([[3000,3,4]])
+print(ax)
+
+
+#EXPLANATION OF CODE
+df=pd.read_csv('homeprices3.csv')
+import math
+#The Math. floor() function returns the largest integer less than or equal to a given number
+median_bedroom=math.floor(df.bedrooms.median())
+#fillna() function is used to fill NA/NaN values using the specified method
+df.bedrooms=df.bedrooms.fillna(median_bedroom)
+#now we create a linear regression object
+reg=linear_model.LinearRegression()
+#The fit() method takes the training data as arguments, which can be one array in the case of unsupervised learning,
+# or two arrays in the case of supervised learning.
+#Note that the model is fitted using X and y, but the object holds no reference to X and y.
+reg.fit(df[['area','bedrooms','age']],df.price)
+#multivariant linear regression: y=m1x1+m2x2+..+mnxn+b (m=coef,b=intercept)
+print(reg.coef_)
+print(reg.intercept_)
+ax=reg.predict([[3000,3,4]])
+print(ax)
+
+
