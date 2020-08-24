@@ -1,1 +1,53 @@
 
+#THE MAIN CODE
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+
+df = pd.read_csv("houseprices.csv")
+
+reg=linear_model.LinearRegression()
+reg.fit(df[['area']],df.prices)
+plt.xlabel('area(sq ft)',fontsize=20)
+plt.ylabel('prices(US$)',fontsize=20)
+plt.scatter(df.area,df.prices,color='red',marker='+')
+plt.plot(df.area,reg.predict(df[['area']]),color='blue')
+plt.show()
+
+
+
+
+#CODE WITH EXPLAINATION + EXAMPLES
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+
+df = pd.read_csv("houseprices.csv")
+#print(df)
+plt.xlabel('area(sq ft)',fontsize=20)
+plt.ylabel('prices(US$)'fontsize=20)
+plt.scatter(df.area,df.prices,color='red',marker='+')
+#plt.show()
+reg=linear_model.LinearRegression()
+#fisrt argument has to be like 2D which is x-axis and second arguement y-axis
+#this is out linear model for prediction of price
+reg.fit(df[['area']],df.prices)
+#for example lets predict the price of house which its area in 200
+ax=reg.predict([[250]])
+print(ax)
+#to check if your answer is t/f 'y=mx+b m=coef,b=intercept' which we can find them as follows.
+print(reg.coef_)
+print(reg.intercept_)
+print(reg.coef_*250+reg.intercept_)#here we got same result
+
+
+#IF YOU WANT TO TRY TO GIVE AREA AND THEN PREDICT THE PRICES THEN.
+d=pd.read_csv('predictionprices.csv')
+
+ax=reg.predict(d)
+d['prices']=ax
+print(d)
+#to export the prices into our dataset withouttheir indexes
+d.to_csv("predictionprices.csv",index=False)#now open ur file and check if prices are exported or not
