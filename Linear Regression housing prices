@@ -1,3 +1,23 @@
+#THE MAIN CODE
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+
+df = pd.read_csv("houseprices.csv")
+
+reg=linear_model.LinearRegression()
+reg.fit(df[['area']],df.prices)
+plt.xlabel('area(sq ft)',fontsize=20)
+plt.ylabel('prices(US$)',fontsize=20)
+plt.scatter(df.area,df.prices,color='red',marker='+')
+plt.plot(df.area,reg.predict(df[['area']]),color='blue')
+plt.show()
+
+
+
+
+#CODE WITH EXPLAINATION + EXAMPLES
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,8 +25,8 @@ from sklearn import linear_model
 
 df = pd.read_csv("houseprices.csv")
 #print(df)
-plt.xlabel('area(sq ft)')
-plt.ylabel('prices(US$)')
+plt.xlabel('area(sq ft)',fontsize=20)
+plt.ylabel('prices(US$)'fontsize=20)
 plt.scatter(df.area,df.prices,color='red',marker='+')
 #plt.show()
 reg=linear_model.LinearRegression()
@@ -21,3 +41,12 @@ print(reg.coef_)
 print(reg.intercept_)
 print(reg.coef_*250+reg.intercept_)#here we got same result
 
+
+#IF YOU WANT TO TRY TO GIVE AREA AND THEN PREDICT THE PRICES THEN.
+d=pd.read_csv('predictionprices.csv')
+
+ax=reg.predict(d)
+d['prices']=ax
+print(d)
+#to export the prices into our dataset withouttheir indexes
+d.to_csv("predictionprices.csv",index=False)#now open ur file and check if prices are exported or not
