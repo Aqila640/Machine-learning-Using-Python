@@ -1,0 +1,18 @@
+['Iris-versicolor' 'Iris-virginica' 'Iris-versicolor' 'Iris-versicolor'
+ 'Iris-setosa' 'Iris-virginica' 'Iris-virginica' 'Iris-versicolor'
+ 'Iris-versicolor' 'Iris-versicolor' 'Iris-setosa' 'Iris-setosa'
+ 'Iris-versicolor' 'Iris-setosa' 'Iris-setosa' 'Iris-versicolor'
+ 'Iris-virginica' 'Iris-versicolor' 'Iris-setosa' 'Iris-setosa'
+ 'Iris-setosa' 'Iris-setosa' 'Iris-versicolor' 'Iris-setosa'
+ 'Iris-versicolor' 'Iris-versicolor' 'Iris-versicolor' 'Iris-setosa'
+ 'Iris-setosa' 'Iris-virginica']
+
+
+[7.16942975e-01 4.08467008e-04 9.99999961e-01 9.99999788e-01
+ 8.90481999e-17 7.95619740e-10 6.71007053e-07 9.99872928e-01
+ 9.76903740e-01 8.58401617e-01 1.95528629e-17 1.39541280e-15
+ 9.99626923e-01 2.10787112e-15 1.79721286e-17 8.21888315e-01
+ 6.94746919e-06 9.99374560e-01 6.60182642e-17 3.73980826e-18
+ 2.11246272e-14 1.95528629e-17 8.61585702e-01 5.99968745e-11
+ 9.92695443e-01 9.99944232e-01 9.94001393e-01 1.88749797e-17
+ 1.00367039e-12 2.67743388e-10]
