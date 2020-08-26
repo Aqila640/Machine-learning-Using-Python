@@ -1,0 +1,30 @@
+question:
+. Considering iris dataset - ”https://archive.ics.uci.edu/ml/datasets/Iris”, D of size N × M,
+with N: number of samples and M: number of features, design a Bayesian classifier to
+classify the test data. Divide the dataset into training and testing data into (a) 70:30 ratio
+(b) 80:20 ratio, calculating the accuracy and error rate
+
+#The code
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+from sklearn.naive_bayes import GaussianNB
+from sklearn import model_selection
+from sklearn.model_selection import train_test_split
+
+dataset = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data')
+
+array = dataset.values
+X = array[:,:4]
+Y = array[:,4]
+
+seed = 0
+X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y, test_size=0.3, random_state=seed)
+
+clf=GaussianNB()
+clf.fit(X_train,Y_train)
+predicted=clf.predict(X_test)
+print(predicted)
+prob_pos_clf = clf.predict_proba(X_test)[:, 1]
+print('\n')
+print(prob_pos_clf)
